@@ -1,1 +1,1 @@
-# vexohub-website
+# VEXO Hub Website
