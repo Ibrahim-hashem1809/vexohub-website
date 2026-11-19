@@ -20,7 +20,8 @@ Pure HTML5, CSS3 and vanilla JavaScript website for `https://vexohub.app`.
 - `stories/index.html` — standalone RTL library at `/stories/`
 - `stories/the-last-page/index.html` — complete first story and reader
 - `stories/assets/` — isolated styles, script, brand and story illustration
-- `stories/stories.json` — source text for the first story
+- `stories/stories.json` — ordered story catalog and complete story text
+- `scripts/build-stories.py` — standard-library static page generator
 
 The section uses static HTML and relative assets, so the existing GitHub Pages
 root deployment serves it without DNS changes or a build step. Reading works
@@ -35,9 +36,11 @@ Stories have their own sitemap and error page; unknown story paths are sent
 to that error page by the shared GitHub Pages fallback when JavaScript is enabled.
 The shared domain remains visible in browser addresses and canonical URLs.
 
-To add another story, create a new directory with an `index.html`, add a
-library card and update `sitemap.xml`. The JSON is an editing source, not a
-live content management system; editing JSON alone does not update the HTML.
+To add another story, add its record to `stories/stories.json`, put its cover in
+`stories/assets/`, then run `python3 scripts/build-stories.py`. This refreshes
+the library, category options, reader pages and independent stories sitemap.
+The first catalog record is the featured story. Commit the generated files
+together with the catalog and images; hosting still needs no build step.
 
 - `css/style.css` — all website styling
 - `js/script.js` — mobile navigation, FAQ behavior and current year
