@@ -29,6 +29,12 @@ bookmarks, font size, day/night reading, progress and sharing. No account,
 database or additional analytics service is used in the stories section.
 Saved stories and reader preferences stay in the current browser.
 
+The two public identities have independent navigation and branding. No public
+page links from the main site to stories or from stories to the main site.
+Stories have their own sitemap and error page; unknown story paths are sent
+to that error page by the shared GitHub Pages fallback when JavaScript is enabled.
+The shared domain remains visible in browser addresses and canonical URLs.
+
 To add another story, create a new directory with an `index.html`, add a
 library card and update `sitemap.xml`. The JSON is an editing source, not a
 live content management system; editing JSON alone does not update the HTML.

@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <style>html[data-stories-error]{visibility:hidden}</style>
+  <script>
+    if (location.pathname === '/stories' || location.pathname.startsWith('/stories/')) {
+      document.documentElement.setAttribute('data-stories-error', '');
+      location.replace('/stories/404.html');
+    }
+  </script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZB5SWGV2D3"></script>
 <script>
