@@ -15,6 +15,24 @@ Pure HTML5, CSS3 and vanilla JavaScript website for `https://vexohub.app`.
 
 ## Structure
 
+### Hekaya Tanya — Arabic fiction
+
+- `stories/index.html` — standalone RTL library at `/stories/`
+- `stories/the-last-page/index.html` — complete first story and reader
+- `stories/assets/` — isolated styles, script, brand and story illustration
+- `stories/stories.json` — source text for the first story
+
+The section uses static HTML and relative assets, so the existing GitHub Pages
+root deployment serves it without DNS changes or a build step. Reading works
+without JavaScript; JavaScript adds title/category search, browser-local
+bookmarks, font size, day/night reading, progress and sharing. No account,
+database or additional analytics service is used in the stories section.
+Saved stories and reader preferences stay in the current browser.
+
+To add another story, create a new directory with an `index.html`, add a
+library card and update `sitemap.xml`. The JSON is an editing source, not a
+live content management system; editing JSON alone does not update the HTML.
+
 - `css/style.css` — all website styling
 - `js/script.js` — mobile navigation, FAQ behavior and current year
 - `images/` — real VEXO Hub application captures
