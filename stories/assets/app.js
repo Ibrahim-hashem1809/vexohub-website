@@ -8,12 +8,17 @@
   let saved = read('saved', []);
   if (!Array.isArray(saved)) saved = [];
   const theme = document.querySelector('[data-theme]');
+  const isReader = document.body.hasAttribute('data-reader');
+  const themeKey = isReader ? 'reader-light' : 'light';
   const setTheme = light => {
     document.body.classList.toggle('light', light);
-    if(theme){ theme.setAttribute('aria-pressed', String(light)); theme.textContent = light ? 'قراءة ليلية' : 'قراءة نهارية'; }
+    if(theme){
+      theme.textContent = light ? 'الخلفية: نهارية ☀' : 'الخلفية: ليلية ☾';
+      theme.setAttribute('aria-label', light ? 'تفعيل الخلفية الليلية' : 'تفعيل الخلفية النهارية');
+    }
   };
-  setTheme(read('light', false) === true);
-  theme?.addEventListener('click', () => { const light = !document.body.classList.contains('light'); setTheme(light); write('light', light); });
+  setTheme(read(themeKey, isReader) === true);
+  theme?.addEventListener('click', () => { const light = !document.body.classList.contains('light'); setTheme(light); write(themeKey, light); });
   const syncSaved = () => document.querySelectorAll('[data-save]').forEach(button => {
     const active = saved.includes(button.dataset.save);
     button.setAttribute('aria-pressed', String(active));
